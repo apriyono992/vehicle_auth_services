@@ -12,7 +12,7 @@ import {
 import { UserService } from './user.service';
 import { User } from './entities/user.model';
 import { AuthGuard } from '../auth/auth_guards';
-import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
+// import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
 
 @Controller('user')
 export class UserController {
@@ -23,9 +23,9 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
   @UseGuards(AuthGuard)
-  @UseInterceptors(CacheInterceptor)
+  // @UseInterceptors(CacheInterceptor)
   @Get()
-  @CacheTTL(30)
+  // @CacheTTL(30)
   findAll() {
     return this.userService.findAll();
   }
